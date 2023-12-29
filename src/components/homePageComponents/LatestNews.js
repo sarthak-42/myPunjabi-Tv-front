@@ -16,7 +16,7 @@ const LatestNews = () => {
 
    const getCategory = async(lang)=>{
         try {
-           const categoryResponse = await axios.get(`http://localhost:8080/api/news/getCategory/${lang}`)
+           const categoryResponse = await axios.get(`https://mypunjabitv-server.onrender.com/api/news/getCategory/${lang}`)
            console.log("Fetched Categories:", categoryResponse.data);
            setCategory(categoryResponse.data.categories)
            console.log("State Categories:", category);
@@ -33,7 +33,7 @@ const LatestNews = () => {
               "Content-type": "application/json",
             },
           };
-         const response = await axios.get(`http://localhost:8080/api/news/getNews/${lang}`, config)
+         const response = await axios.get(`https://mypunjabitv-server.onrender.com/api/news/getNews/${lang}`, config)
          console.log("News>>" , response.data)
          setLatestNews(response.data)
       } catch (error) {

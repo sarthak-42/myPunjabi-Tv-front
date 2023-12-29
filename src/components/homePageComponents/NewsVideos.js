@@ -16,7 +16,7 @@ const NewsVideos = () => {
         },
       };
       const response = await axios.get(
-        `http://localhost:8080/api/news/getNews/${lang}`,
+        `https://mypunjabitv-server.onrender.com/api/news/getNews/${lang}`,
         config
       );
       console.log("News>>", response.data);
