@@ -21,7 +21,7 @@ const Live = () => {
               <div className="col-sm-9">
                 <ul className="p-0">
                   <li>
-                    <a>
+                    <a href="/">
                       <MenuIcon style={{ color: "red", marginRight: "10px" }} />
                       {translate("liveHeading")}
                     </a>

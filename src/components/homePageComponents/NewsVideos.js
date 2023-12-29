@@ -40,7 +40,7 @@ const NewsVideos = () => {
                     <div className="col-lg-12">
                       <ul className="p-0">
                         <li>
-                          <a>
+                          <a href="/">
                             {" "}
                             <MenuIcon
                               style={{ color: "red", marginRight: "10px" }}
