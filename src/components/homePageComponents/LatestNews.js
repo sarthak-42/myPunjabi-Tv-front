@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useLanguage } from '../../utils/LanguageContext'
-import icon from '../../assets/images/togle-img.png'
+// import icon from '../../assets/images/togle-img.png'
 // import newsImage from '../../assets/images/breaking-news.webp'
 import MenuIcon from '@mui/icons-material/Menu';
 // import { useCallback } from 'react';
