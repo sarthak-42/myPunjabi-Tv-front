@@ -221,10 +221,11 @@ const NewsVideos = () => {
                   </div>
                 </div>
               </div>
+              <div className="read-more py-3">
+              <a href="/">View More</a>
             </div>
-            <div className="read-more py-3">
-              <a href="/">Read More</a>
             </div>
+            
           </div>
         </div>
       </section>

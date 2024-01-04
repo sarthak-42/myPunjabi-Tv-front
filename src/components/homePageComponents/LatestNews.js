@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useLanguage } from '../../utils/LanguageContext'
 // import icon from '../../assets/images/togle-img.png'
 // import newsImage from '../../assets/images/breaking-news.webp'
+import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 // import { useCallback } from 'react';
 
@@ -41,8 +42,9 @@ const LatestNews = () => {
       }
    }
    useEffect(() => {
+       // eslint-disable-next-line 
       getLatestNews(language);
-      getCategory(language)
+      getCategory(language)  // eslint-disable-next-line 
   }, [language]);
   
   return (
@@ -61,11 +63,12 @@ const LatestNews = () => {
                         <div className="col-sm-6" key={newsItem._id}>
 
                            <div className="box">
-                                 <a href="/">
+                                <Link to={`/news/${newsItem._id}`}>
                                  <img src={newsItem.img} style={{ width: '500px', height: '250px' }} alt=""/>                                
                                  <p className='text-start col-12 text-truncate'>{newsItem.title}</p>
                                  {/* <span className="latest-news">November 2, 2023</span> */}
-                              </a>
+                           
+                                </Link>
                            </div>
                         </div>
                                 )

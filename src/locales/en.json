@@ -15,5 +15,11 @@
     "liveNewsBtn": "Live News",
     "footerCategory":"CATEGORIES",
     "footerPostHeading":"RECENT POSTS",
-    "footerText": "Newspaper is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry."
+    "footerText": "Newspaper is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the entertainment industry.",
+    "contactMessage": "Get in Touch",
+    "contactFormName":"Your Name",
+    "contactFormEmail":"Your Email",
+    "contactFormSubject":"Subject",
+    "contactFormMessage":"Message",
+    "contactButtonText": "Send"
 }

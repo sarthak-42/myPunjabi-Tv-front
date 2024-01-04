@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import footerLogo from '../../assets/images/footer-logo.png'
 import { useLanguage } from '../../utils/LanguageContext'
 import "bootstrap/dist/css/bootstrap.min.css";
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -8,6 +9,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from 'react-router-dom'
 const Footer = () => {
    const {language, translate } = useLanguage();
    const [latestNews, setLatestNews] = useState([]);
@@ -32,15 +34,16 @@ const Footer = () => {
             },
           };
          const response = await axios.get(`https://mypunjabitv-server.onrender.com/api/news/getNews/${lang}`, config)
-         console.log("News>>" , response.data)
+         console.log("News>>" , response.data) 
          setLatestNews(response.data)
       } catch (error) {
          console.log("Error fetching latest news", error)
       }
    }
    useEffect(() => {
+       
       getLatestNews(language);
-      getCategory(language)
+      getCategory(language)// eslint-disable-next-line 
   }, [language]  );
 
   return (
@@ -50,34 +53,34 @@ const Footer = () => {
             <div className="container">
                <div className="row">
                   <div className="col-sm-5">
-                     <img src="img/footer-logo.png" className="footer-logo pt-4" alt=""/>
+                     <img src={footerLogo}className="footer-logo pt-4" alt=""/>
                      <h5 className="font-weight-normal text-start mt-4 mb-5">
                        {translate('footerText')}
                      </h5>
-                     <ul className="social-media mb-3">
-                        <li>
-                           <a href="/">
+                     <ul className="social-media mb-3" style={{ display: 'flex', padding: 0 }}>
+                        <li style={{ margin: '0 10px' }}>
+                           <a href="/"  style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                               <FacebookIcon/>
                            {/* <FontAwesomeIcon icon="fa-brands fa-facebook" /> */}
                            </a>
                         </li>
-                        <li>
-                          <a href="/">
+                        <li style={{ margin: '0 10px' }}>
+                          <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <InstagramIcon/>
                           </a>
                        </li>
-                        <li>
-                           <a href="/">
+                        <li style={{ margin: '0 10px' }}>
+                           <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <YouTubeIcon/>
                            </a>
                         </li>
-                        <li>
-                           <a href="/">
+                        <li style={{ margin: '0 10px' }}>
+                           <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                            <TwitterIcon/>
                            </a>
                         </li>
-                        <li>
-                          <a href="/">
+                        <li style={{ margin: '0 10px' }}>
+                          <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <LinkedInIcon/>
                           </a>
                        </li>
@@ -86,12 +89,14 @@ const Footer = () => {
                   <div className="col-sm-4">
                      <h3 className="font-weight-bold mb-3">{translate('footerPostHeading')}</h3>
                      <div className="row">
+                   
                         {latestNews.map((newsItem, index)=>(
                            index < 3 &&(
                         <div className="col-sm-12" key={newsItem._id}>
                            <div className="footer-border-bottom pb-2">
+                              <Link to={`/news/${newsItem._id}`} style={{textDecoration:'none' , color:'#fff'}}>
                               <div className="row">
-                                 <div className="col-3">
+                                 <div className="col-3" >
                                     <img src={newsItem.img}alt="thumb" className="img-fluid"/>
                                  </div>
                                  <div className="col-9">
@@ -100,6 +105,7 @@ const Footer = () => {
                                     </h5>
                                  </div>
                               </div>
+                             </Link>
                            </div>
                         </div>
 
@@ -180,7 +186,24 @@ const Footer = () => {
                </div>
             </div>
          </div>
+
       </footer>
+      <div className="main-footer">
+         <div className="container">
+           <div className="row">
+             <div className="col-md-6">
+               <p className="text-start">Copyright © My Punjabi Tv 2024 </p>
+             </div>
+             <div className="col-md-6">
+                  <ul className="footer-menu text-end">                             
+                     <li><Link to={'/terms&conditions'}> Terms of use</Link></li>
+                     <li>Privacy Policy</li>
+                     <li><Link to={'/contact-us'}>Contact</Link></li>
+                 </ul>
+             </div>
+           </div>
+         </div>
+       </div>
     </div>
   )
 }
