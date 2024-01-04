@@ -18,7 +18,7 @@ const NewsArticle = () => {
     const getNewsById = async (lang, id) => {
         try {
          
-          const response = await axios.get(`http://localhost:8080/api/news/getnews/${lang}/${id}`);
+          const response = await axios.get(`https://mypunjabitv-server.onrender.com/api/news/getnews/${lang}/${id}`);
           console.log("News by ID >>", response.data);
           // Handle the fetched news data as needed, maybe set it to state or return it
             setArticle(response.data)

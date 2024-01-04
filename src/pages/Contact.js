@@ -53,7 +53,7 @@ const Contact = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:8080/api/contact/mail", formData);
+      await axios.post("https://mypunjabitv-server.onrender.com/api/contact/mail", formData);
       setFormData({
         name: "",
         email: "",
