@@ -8,7 +8,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 import { Link } from 'react-router-dom'
 const Footer = () => {
    const {language, translate } = useLanguage();
@@ -59,30 +60,30 @@ const Footer = () => {
                      </h5>
                      <ul className="social-media mb-3" style={{ display: 'flex', padding: 0 }}>
                         <li style={{ margin: '0 10px' }}>
-                           <a href="/"  style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
+                           <Link to="https://www.facebook.com/tvmypunjabi" target='_black'  style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                               <FacebookIcon/>
                            {/* <FontAwesomeIcon icon="fa-brands fa-facebook" /> */}
-                           </a>
+                           </Link>
                         </li>
                         <li style={{ margin: '0 10px' }}>
-                          <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
+                          <Link to="https://www.instagram.com/mypunjabitv/" target='_blank' style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <InstagramIcon/>
-                          </a>
+                          </Link>
                        </li>
                         <li style={{ margin: '0 10px' }}>
-                           <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
+                           <Link to="https://www.youtube.com/@MYPunjabiTV" target='_blank' style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <YouTubeIcon/>
-                           </a>
+                           </Link>
                         </li>
                         <li style={{ margin: '0 10px' }}>
-                           <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
+                           <Link to="https://twitter.com/mypunjabitv" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                            <TwitterIcon/>
-                           </a>
+                           </Link>
                         </li>
                         <li style={{ margin: '0 10px' }}>
-                          <a href="/" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
-                          <LinkedInIcon/>
-                          </a>
+                          <Link to="https://in.pinterest.com/mypunjabitv/" target='_blank' style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
+                          <PinterestIcon/>
+                          </Link>
                        </li>
                      </ul>
                   </div>

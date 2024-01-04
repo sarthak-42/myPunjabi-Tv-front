@@ -2,6 +2,7 @@ import React from 'react'
 // import { useLanguage } from '../../utils/LanguageContext'
 import youTubeLogo from '../../assets/images/youtube.png'
 import { useLanguage } from '../../utils/LanguageContext'
+import { Link } from 'react-router-dom';
 const HeroSection = () => {
     const { translate } = useLanguage();
   return (
@@ -19,7 +20,7 @@ const HeroSection = () => {
                            <div className="col-sm-12">
                               <h4 className="pb-3">The word Lorem Ipsum is derived from the Latin word which means “pain itself”. It is a kind of a text filler tool that is used by the webmaster on the website. The word Lorem Ipsum is derived from</h4>
                               <div className="cstm-btn pb-3">
-                                 <a href="/"><img src={youTubeLogo} alt=""/><span>Youtube</span></a>
+                                 <Link to ="https://www.youtube.com/@MYPunjabiTV" target='_blank'><img src={youTubeLogo} alt=""/><span>Youtube</span></Link>
                               </div>
                            </div>
                         </div>
