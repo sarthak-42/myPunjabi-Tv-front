@@ -86,11 +86,11 @@ const Contact = () => {
         <div className="container py-5">
           <div className="row g-5">
             <div className="col-lg-6 contact-us">
+              <h4 className="contact-title text-start p-3 pb-2"> {translate('contactMessage')}</h4>
               <form
-               class="form contactForm p-3 p-xl-4"
+               class="form contactForm p-1 p-xl-2"
                id="contactusForm"
                onSubmit={handleClick}>
-                <h4 className="contact-title pb-3 text-start"> {translate('contactMessage')}</h4>
                 <div className="row g-3">
                   <div className="col-md-6">
                     <div className="form-floating">
