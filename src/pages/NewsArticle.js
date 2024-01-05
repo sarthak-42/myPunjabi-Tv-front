@@ -40,7 +40,11 @@ const NewsArticle = () => {
         
    }, [language, id]);
 
-
+   const formatDate = (dateString) => {
+      const [year, month, day] = dateString.split('-');
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      return `${monthNames[parseInt(month) - 1]}-${day}-${year}`;
+    };
   return (
     <div>
     <Navbar changeLanguage={changeLanguage} currentLanguage={language}/>
@@ -53,7 +57,7 @@ const NewsArticle = () => {
                     <div className="blog-card"> 
                     {article?   <div className="post-date-ribbon">
                         <div className="corner"></div>
-                       {article.createdAt}
+                        {formatDate(article.createdAt)}
                         </div> : 'January-1-2024' }
                                         
                        <div className="about-right">
