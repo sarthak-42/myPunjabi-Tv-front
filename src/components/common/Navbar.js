@@ -103,7 +103,7 @@ const Navbar = ({ changeLanguage, currentLanguage }) => {
                }`}
                onClick={toggleLanguage}
              >
-               {currentLanguage === "en" ? "English" : "ਪੰਜਾਬੀ"}
+               {currentLanguage === "en" ? "ਪੰਜਾਬੀ ਵਿੱਚ ਬਦਲੋ": " Convert to English"}
              </button>
              <button
               type='button'                
