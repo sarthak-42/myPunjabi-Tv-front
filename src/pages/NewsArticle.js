@@ -16,6 +16,7 @@ import { useParams } from 'react-router-dom';
 import { useLanguage } from '../utils/LanguageContext'
 import add2 from '../assets/images/news_card.png'
 import Footer from '../components/common/Footer';
+import author from '../assets/images/user.png'
 const NewsArticle = () => {
    window.scroll(0,0)
     const {id} = useParams();
@@ -72,7 +73,7 @@ const NewsArticle = () => {
 
                         <div className="social-medialinks text-start">
                            <h5>Follow Us:</h5>
-                           <ul className="mt-3">
+                           <ul className="my-3">
                               <li><Link to="https://www.facebook.com/tvmypunjabi" target='_blank'><FacebookIcon/></Link></li>
                               <li><Link to="https://www.instagram.com/mypunjabitv" target='_blank'><InstagramIcon/></Link></li>
                               <li><Link to="https://twitter.com/mypunjabitv" target='_blank'><TwitterIcon/></Link></li>
@@ -80,8 +81,26 @@ const NewsArticle = () => {
                               <li><Link to="https://in.pinterest.com/mypunjabitv" target='_blank'> <PinterestIcon/> </Link></li>
                            </ul>
                         </div>
-                        <h5 className="text-start"><strong>Santosh</strong></h5>
+                        <div className="row">
+                       <div className="col-md-2">
+                       <div className="about-author">
+                           <div className="media text-end">
+                              <img className="align-self-start mr-3 w-20" src={author} alt="" />
+                           </div>
+                        </div> 
+                        </div>
+                        <div className="col-md-10">
+                        <div className="media-body text-start">
+                                 <h6><b>About Author</b></h6>
+                                 <Link to="https://www.linkedin.com/in/sarthak-418873228/" target='_blank' className="text-decoration-none py-2">Santosh</Link>
+                                 <p>I am Santosh Thakur a Senior Web Designer at vp broadband. I have 4 years of experience 
+                                    developing online solutions for brands like Web Applications,  UI/UX etc... I am here 
+                                    to share my knowledge and answer some of the most asked questions about enterprise solutions on the internet.</p>
+                                 </div>
+                        </div>
                        </div>
+                       </div>
+                       
 
                              {/* <p className="about-pera1">Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
                              <p className="about-pera1">

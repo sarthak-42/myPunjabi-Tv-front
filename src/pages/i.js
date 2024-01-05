@@ -105,7 +105,7 @@ const NewsArticle = () => {
                         </div>
                         <h5 className="text-start"><strong>About Author</strong></h5>
                        </div>
-                       {/* <div className="row">
+                       <div className="row">
                        <div className="col-md-2">
                        <div className="about-author">
                            <div className="media text-end">
@@ -122,7 +122,7 @@ const NewsArticle = () => {
                                     to share my knowledge and answer some of the most asked questions about enterprise solutions on the internet.</p>
                                  </div>
                         </div>
-                       </div> */}
+                       </div>
                        </div>
                        </div>
                     <div className="col-md-3">
