@@ -34,6 +34,9 @@ p {
 header {
 	height: 72px;
 }
+header a{
+	color: #fff !important;
+}
 
 .top-bar {
 	line-height: 1;
@@ -49,19 +52,10 @@ header {
 	width: 164px;
 	background-color: #fafafa;
 }
-
-/* #logo:after {
-	content: " ";
-	z-index: 9999999;
-	position: absolute;
-	top: 0;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 72px 50px 0 0;
-	border-color: #fafafa transparent transparent transparent;
-} */
-
+.main-menu li:hover a {
+    color: #f60;
+    transition: 0.3s;
+}
 .mobile-menu i {
 	font-size: 24px;
 }
@@ -73,7 +67,7 @@ header {
 .main-menu li a {
 	position: relative;
 	display: block;
-	padding: 0 20px;
+	padding: 0 20px !important;
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -149,19 +143,6 @@ button.languagebtn-style:hover {
 .trending-section p span {
     background: #0000662e;
 }
-/* .breaking-news {
-	white-space: nowrap;
-	overflow: hidden;
-	animation: scrollText 15s linear infinite;
-}
-@keyframes scrollText {
-	0% {
-	  transform: translateX(100%);
-	}
-	100% {
-	  transform: translateX(-100%);
-	}
-} */
 .breaking-news-container {
     position: relative;
     overflow: hidden;
@@ -801,7 +782,76 @@ ul.footer-menu li {
     display: inline-block;
     margin-left: 36px;
 }
+.blog-card {
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 14px 14px 40px 14px;
+    background: #fff;
+}
+.blog-card .section-tittle {
+    padding: 20px;
+}
+.blog-card .corner {
+    position: absolute;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 10px;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #009999 rgba(0, 0, 0, 0);
+}
+.blog-card .corner:before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 11px;
+    border-color:rgb(255 102 0) rgb(255 102 0) rgb(255 102 0) rgb(255 247 242)
+}
+.blog-card .post-date-ribbon {
+    margin-top: -30px;
+}
+.blog-card .post-date-ribbon {
+    line-height: 25px;
+    color: #fff;
+    font-size: 12px;
+    margin-top: -25px;
+    position: relative;
+    padding: 0 7px;
+    float: left;
+	background: #f60;
+}
+.blog-card .about-author img {
+    width: 90px;
+	border-radius: 50%;
+}
+.blog-card .about-author .media-body p {
+    font-size: 15px;
+    font-weight: 400;
+}
+.blog-card .social-medialinks ul {
+    padding: 0;
+}
+.blog-card .social-medialinks ul li {
+	background: #006;
+    padding: 3px 6px 0px;
+    display: inline-block;
+    width: 36px;
+    margin-right: 3px;
+    border-radius: 50%;
+    height: 36px;
+}
 
+.blog-card .social-medialinks ul li a {
+    border: none !important;
+	color: #fff;
+}
+.blog-card .social-medialinks ul li:hover {
+    background: #f60;
+    color: #006;
+    transition: 0.3s;
+}
 @media screen and (min-width: 768px) {
 	#live-tv-btn {
 		padding: 10px 25px 10px 25px;

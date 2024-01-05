@@ -1,4 +1,6 @@
 import React from 'react'
+import { useEffect } from 'react'
+// import { useNavigate } from 'react-router-dom'
 // import { useState } from 'react'
 import { useLanguage } from '../utils/LanguageContext'
 import Live from '../components/homePageComponents/Live'
@@ -11,10 +13,32 @@ import BreakingNews from '../components/homePageComponents/BreakingNews'
 import HeroSection from '../components/homePageComponents/HeroSection'
 import NewsVideos from '../components/homePageComponents/NewsVideos'
 // import ExclusiveNews from '../components/homePageComponents/ExclusiveNews'
-
+import { useLocation } from 'react-router-dom'
 const Home = () => {
   // const [displayLive, setDisplayLive] = useState(false);
   const { changeLanguage, language } = useLanguage();
+  const location = useLocation()
+  // const navigate = useNavigate();
+  useEffect(() => {
+    // Parse the query string from the location object
+    const params = new URLSearchParams(location.search);
+    // Check if the 'scrollTo' parameter is set to 'live-news-section'
+    if (params.get('scrollTo') === 'live-news-section') {
+      // Scroll to the Live News section
+      const liveNewsSection = document.getElementById('live-news-section');
+      if (liveNewsSection) {
+        window.scrollTo({
+          top: liveNewsSection.offsetTop,
+          behavior: 'smooth'
+        });
+        // const newSearch = location.search.replace('?scrollTo=live-new-btn', '');
+        // navigate({
+        //   ...location,
+        //   search: newSearch
+        // });
+      }
+    }
+  }, [location.search]);
   return (
     <>
     
@@ -24,7 +48,10 @@ const Home = () => {
     <div>
       <BreakingNews/>
       <HeroSection/>
-      <Live/>
+      <div id='live-news-section'>
+      <Live />
+      </div>
+
         
       <LatestNews/>
       <NewsVideos/>

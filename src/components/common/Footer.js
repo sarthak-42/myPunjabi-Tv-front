@@ -59,28 +59,28 @@ const Footer = () => {
                        {translate('footerText')}
                      </h5>
                      <ul className="social-media mb-3" style={{ display: 'flex', padding: 0 }}>
-                        <li style={{ margin: '0 10px' }}>
+                        <li>
                            <Link to="https://www.facebook.com/tvmypunjabi" target='_black'  style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                               <FacebookIcon/>
                            {/* <FontAwesomeIcon icon="fa-brands fa-facebook" /> */}
                            </Link>
                         </li>
-                        <li style={{ margin: '0 10px' }}>
+                        <li>
                           <Link to="https://www.instagram.com/mypunjabitv/" target='_blank' style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <InstagramIcon/>
                           </Link>
                        </li>
-                        <li style={{ margin: '0 10px' }}>
+                        <li>
                            <Link to="https://www.youtube.com/@MYPunjabiTV" target='_blank' style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <YouTubeIcon/>
                            </Link>
                         </li>
-                        <li style={{ margin: '0 10px' }}>
+                        <li>
                            <Link to="https://twitter.com/mypunjabitv" style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                            <TwitterIcon/>
                            </Link>
                         </li>
-                        <li style={{ margin: '0 10px' }}>
+                        <li>
                           <Link to="https://in.pinterest.com/mypunjabitv/" target='_blank' style={{ display: 'inline-block', transition: 'transform 0.3s ease-in-out', borderRadius: '100%', overflow: 'hidden' }}>
                           <PinterestIcon/>
                           </Link>
