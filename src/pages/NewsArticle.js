@@ -21,7 +21,7 @@ const NewsArticle = () => {
    window.scroll(0,0)
     const {id} = useParams();
     console.log(id)
-    const { changeLanguage, language } = useLanguage();
+    const { changeLanguage, language, translate } = useLanguage();
     const [article , setArticle]= useState(null);
     const getNewsById = async (lang, id) => {
         try {
@@ -91,7 +91,7 @@ const NewsArticle = () => {
                         </div>
                         <div className="col-md-10">
                         <div className="media-body text-start">
-                                 <h6><b>About Author</b></h6>
+                                 <h6><strong>{translate('newsAuthorName')}</strong></h6>
                                  <Link to="https://www.linkedin.com/in/sarthak-418873228/" target='_blank' className="text-decoration-none py-2">Santosh</Link>
                                  <p>I am Santosh Thakur a Senior Web Designer at vp broadband. I have 4 years of experience 
                                     developing online solutions for brands like Web Applications,  UI/UX etc... I am here 

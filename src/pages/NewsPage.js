@@ -4,6 +4,8 @@ import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import news from '../assets/images/news-banner.avif'
+// import news2 from '../assets/images/news11.avif'
 import '../style/style.css'
 import { Link } from "react-router-dom";
 import vid from "../assets/images/Modern Breaking News Intro Opener for After Effects.mp4";
@@ -50,20 +52,39 @@ const NewsPage = () => {
   return (
     <div>
       <Navbar changeLanguage={changeLanguage} currentLanguage={language} />
-      <section>
+      <section className="top-news-sec">
         <div className="live-news features latest-news" >
         <div className="container">
-         
+        {/* <div className="row" style={{ backgroundColor: "#006" }}>
+            <div className="col-md-8 m-0 p-0">
+              <img className="w-100" src={news}/>
+            </div>
+            <div className="col-md-4 m-0 p-0">
+              <ul className="top-news-list">
+                <li><p className="vid-title">PM Modi Takes Dig At Opposition During BJP Parliamentary Meeting Over Security B</p>
+              <img src={news2}/></li>
+              <li><p className="vid-title">PM Modi Takes Dig At Opposition During BJP Parliamentary Meeting Over Security B</p>
+              <img src={news2}/></li>
+              <li><p className="vid-title">PM Modi Takes Dig At Opposition During BJP Parliamentary Meeting Over Security B</p>
+              <img src={news2}/></li>
+              <li><p className="vid-title">PM Modi Takes Dig At Opposition During BJP Parliamentary Meeting Over Security B</p>
+              <img src={news2}/></li>
+              <li><p className="vid-title">PM Modi Takes Dig At Opposition During BJP Parliamentary Meeting Over Security B</p>
+              <img src={news2}/></li>
+              </ul>
+            </div>
+        </div> <br /> */}
           <div className="row">
             {latestNews.map(
               (newsItem, index) =>
                 index < 1 && (
                   <div className="col-md-5" key={newsItem.id}>
                     <div className="on-going-news">
+                    <Link to={`/news/${newsItem._id}`} style={{textDecoration:'none' , color:'black'}}>
                       <h2 className="mb-2 text-start">{newsItem.title}</h2>
 
                         <div className="truncate-text text-start">{newsItem.description}</div>
-                  
+                  </Link>
                       {/* <div className="Watch-more">
                         <h4 className="mt-3">Watch More</h4>
                         <span>

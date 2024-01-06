@@ -3,6 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../utils/LanguageContext";
+import { Link } from "react-router-dom";
 // import { TaskRounded } from "@mui/icons-material";
 const NewsVideos = () => {
   const { language, translate } = useLanguage();
@@ -40,13 +41,16 @@ const NewsVideos = () => {
                     <div className="col-lg-12">
                       <ul className="p-0">
                         <li>
-                          <a href="/">
-                            {" "}
+                        
+                           
                             <MenuIcon
-                              style={{ color: "red", marginRight: "10px" }}
+                              style={{ color: "red", marginRight: "10px" , marginBottom:'2px'}}
                             />
+                            <strong style={{fontSize : '18px', textTransform: 'uppercase'}}>
                             {translate("newsVideosHeadings")}
-                          </a>
+                            </strong>
+                            
+            
                         </li>
                       </ul>
                       <div className="row">
@@ -222,7 +226,7 @@ const NewsVideos = () => {
                 </div>
               </div>
               <div className="read-more py-3">
-              <a href="/">View More</a>
+              <Link to="/videos">View More</Link>
             </div>
             </div>
             

@@ -55,7 +55,7 @@ const LatestNews = () => {
                <div className="row">
                   <div className="col-sm-9">
                      <ul className="p-0">
-                        <li><a href='/'> <MenuIcon style={{ color: 'red' , marginRight:'10px' }}/>{translate('latestNewsHeading')}</a></li>
+                        <li> <MenuIcon style={{ color: 'red' , marginRight:'10px' , marginBottom: "2px"}}/><strong style={{fontSize : '18px', textTransform: 'uppercase'}}>{translate('latestNewsHeading')}</strong></li>
                      </ul>
                      <div className="row" >
                            {latestNews.map((newsItem, index)=>(
@@ -78,9 +78,9 @@ const LatestNews = () => {
                   </div>
                   <div className="col-sm-3">
                      <ul className="p-0">
-                        <li><a href='/'><MenuIcon style={{ color: 'red' , marginRight:'10px' }}/>{translate('categoryHeading')}</a></li>
+                        <li><MenuIcon style={{ color: 'red' , marginRight:'10px', marginBottom: '2px' }}/><strong style={{fontSize : '18px', textTransform: 'uppercase'}}>{translate('categoryHeading')}</strong></li>
                      </ul>
-                     <ul className="vertical-menu">
+                     <ul className="vertical-menu border-bottomdiv" >
                         {/* <li><a href="/">Jobs</a></li>
                         <li><a href="/">Technology</a></li>
                         <li><a href="/">Media</a></li>

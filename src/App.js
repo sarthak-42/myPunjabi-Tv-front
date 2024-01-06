@@ -12,6 +12,7 @@ import NewsPage from './pages/NewsPage';
 import Contact from './pages/Contact';
 import TermsPage from './pages/TermsPage';
 // import Videos from './pages/Videos';
+import NotFound from './pages/404';
 function App() {
   return (
     <LanguageProvider>
@@ -24,7 +25,8 @@ function App() {
         <Route path='/news'element= {<NewsPage/>}/>
         <Route path='/contact-us'element= {<Contact/>}/>
         <Route path='/terms&conditions'element= {<TermsPage/>}/>
-        {/* <Route path='/videos'element= {<Videos/>}/> */}
+        <Route path='/videos'element= {<NotFound/>}/>
+        <Route path='/shows'element= {<NotFound/>}/>
         </Routes>
       </Router>
     </div>

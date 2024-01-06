@@ -316,7 +316,7 @@ section.masthead .cstm-btn a:hover {
 	margin-left: 0;
 }
 
-.features ul li a:first-child {
+.features ul li:first-child {
 	border-bottom: 1px solid #bf1f2f;
 	padding: 3px 0px;
 }
@@ -352,7 +352,7 @@ section.masthead .cstm-btn a:hover {
 }
 
 .features ul.vertical-menu li {
-	padding: 8px 15px;
+	padding: 12px 15px;
 	display: inline-block;
 	margin: 4px;
 	background: #000000;
@@ -616,7 +616,7 @@ section.slider-sections {
 
 
 footer .footer-top {
-	background: #000066;
+	background: url('../assets//images//main-footer-top-bg.jpg');
 	padding: 74px 0 48px 0;
 	color: white;
 	text-align: left;
@@ -682,7 +682,7 @@ footer .footer-top .social-media li a:hover i {
     color: #fff;
 }
 .main-footer {
-    background: #006;
+	background: url('../assets//images//main-footer-top-bg.jpg');
     color: #fff;
     padding: 10px 0px;
     border-top: 1px solid #626161;
@@ -852,6 +852,69 @@ ul.footer-menu li {
     color: #006;
     transition: 0.3s;
 }
+.youtube-video-slider .next-pre-btn {
+    position: absolute;
+    bottom: 0px;
+    height: 90px;
+    background: #f5f5f9;
+    padding: 20px 20px 0px 100px;
+    border-top-right-radius: 6px;
+}
+
+.youtube-video-slider .next-pre-btn img {
+   width: 46px;
+    height: 56px;
+    margin: 0px 10px;
+    background: #ff6600;
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.youtube-area .video-info .video-caption .bottom-caption h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 27px;
+}
+ul.youtube-videos li {
+   display: inline-block;
+    margin-left: 6px;
+    cursor: pointer;
+    width: 140px;
+    text-align: left;
+}
+ul.youtube-videos li p {
+    font-weight: 600;
+}.bottom-caption h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+.bottom-caption, ul.youtube-videos {
+    margin-top: 40px;
+}
+
+
+
+.top-news-sec ul {
+    background: #006;
+    padding: 10px;
+    color: #fff;
+}
+
+.top-news-sec ul.top-news-list li {
+    display: flex;
+	padding: 10px;
+	border-bottom: 1px dotted #fff;
+}
+.top-news-sec ul.top-news-list li p {
+    font-size: 14px;
+    padding-right: 22px;
+}
+
+.top-news-sec ul.top-news-list li:last-child {
+    border: none;
+}
+
 @media screen and (min-width: 768px) {
 	#live-tv-btn {
 		padding: 10px 25px 10px 25px;
@@ -863,4 +926,5 @@ ul.footer-menu li {
 		padding-top: 12rem;
 		padding-bottom: 12rem;
 	}
+	
 }

@@ -21,10 +21,13 @@ const Live = () => {
               <div className="col-sm-9">
                 <ul className="p-0">
                   <li>
-                    <a href="/">
-                      <MenuIcon style={{ color: "red", marginRight: "10px" }} />
+                  
+                      <MenuIcon style={{ color: "red", marginRight: "10px" , marginBottom: '2px'}} />
+                      <strong style={{fontSize : '18px', textTransform: 'uppercase'}}>
                       {translate("liveHeading")}
-                    </a>
+                      </strong>
+                      
+                
                   </li>
                 </ul>
                 <div className="row">
@@ -32,7 +35,7 @@ const Live = () => {
                     <div className="box">
                       <div className="responsive-iframe-container">
                         <iframe
-                          src="https://www.youtube.com/embed/fimZ_OSrKgY?si=1wJZU98AcVMkJnrA"
+                          src="https://www.youtube.com/embed/eB3pe90TZlc?si=PBrbOh9vjj7m0jil"
                           title="YouTube video player"
                           frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
