@@ -54,7 +54,10 @@ const Footer = () => {
             <div className="container">
                <div className="row">
                   <div className="col-sm-5">
+                     <Link to="/">
+
                      <img src={footerLogo}className="footer-logo pt-4" alt=""/>
+                     </Link>
                      <h5 className="font-weight-normal text-start mt-4 mb-5">
                        {translate('footerText')}
                      </h5>
