@@ -15,6 +15,7 @@ import NewsVideos from '../components/homePageComponents/NewsVideos'
 // import ExclusiveNews from '../components/homePageComponents/ExclusiveNews'
 import { useLocation } from 'react-router-dom'
 const Home = () => {
+  window.scroll(0,0)
   // const [displayLive, setDisplayLive] = useState(false);
   const { changeLanguage, language } = useLanguage();
   const location = useLocation()
