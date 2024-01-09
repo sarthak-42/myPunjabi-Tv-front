@@ -53,7 +53,7 @@ const Contact = () => {
       return;
     }
     try {
-      await axios.post("https://mypunjabitv-server.onrender.com/api/contact/mail", formData);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/contact/mail`, formData);
       setFormData({
         name: "",
         email: "",

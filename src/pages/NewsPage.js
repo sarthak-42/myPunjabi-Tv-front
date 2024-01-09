@@ -36,7 +36,7 @@ const NewsPage = () => {
         },
       };
       const response = await axios.get(
-        `https://mypunjabitv-server.onrender.com/api/news/getNews/${lang}`,
+        `${process.env.REACT_APP_API_URL}/api/news/getNews/${lang}`,
         config
       );
       console.log("News>>", response.data);

@@ -6,18 +6,19 @@ import "slick-carousel/slick/slick-theme.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import rightIcon from "../assets/images/right-icon01.png";
 import leftIcon from "../assets/images/left-icon01.png";
-import thumb1 from "../assets/images/youtube-banner.png";
-import thumb2 from "../assets/images/news11.avif";
+import axios from "axios";
+import { useLanguage } from "../utils/LanguageContext";
+import { Link } from "react-router-dom";
+
 import "../style/style.css";
 
 const styles = {
-   videoItem: {
-     width: '25%', // Adjust based on the number of videos you want to display per row
-     padding: '0 15px', // Add some padding if necessary
-     boxSizing: 'border-box' // Ensure padding doesn't increase item width
-   }
- };
- 
+  videoItem: {
+    width: "25%", // Adjust based on the number of videos you want to display per row
+    padding: "0 15px", // Add some padding if necessary
+    boxSizing: "border-box", // Ensure padding doesn't increase item width
+  },
+};
 
 const Videos = () => {
   const [nav1, setNav1] = useState(null);
@@ -26,12 +27,29 @@ const Videos = () => {
   const slider1Ref = useRef(null);
   const slider2Ref = useRef(null);
   const slider3Ref = useRef(null);
-  //   const handleNext = () => {
-  //    if (sliderRef1.current && sliderRef2.current) {
-  //      sliderRef1.current.slickNext(); // Go to next slide for sliderRef1
-  //      sliderRef2.current.slickNext(); // Go to next slide for sliderRef2
-  //    }
-  //  };
+
+  const { language } = useLanguage();
+  const [latestNews, setLatestNews] = useState([]);
+  //   const [category, setCategory] = useState([]);
+
+  const getLatestNews = async (lang) => {
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/news/getNews/${lang}`,
+        config
+      );
+      console.log("News>>", response.data);
+      setLatestNews(response.data);
+    } catch (error) {
+      console.log("Error fetching latest news", error);
+    }
+  };
+
   const handleNext = () => {
     if (nav1 && nav2 && nav3) {
       nav1.slickNext(); // Go to next slide for nav1
@@ -41,33 +59,19 @@ const Videos = () => {
   };
 
   const handlePrev = () => {
-    if (nav1 && nav2 && nav3 ) {
+    if (nav1 && nav2 && nav3) {
       nav1.slickPrev(); // Go to previous slide for nav1
       nav2.slickPrev(); // Go to previous slide for nav2
       nav3.slickPrev(); // Go to previous slide for nav3
     }
   };
 
-  //  const handlePrev = () => {
-  //    if (sliderRef1.current && sliderRef2.current) {
-  //      sliderRef1.current.slickPrev(); // Go to previous slide for sliderRef1
-  //      sliderRef2.current.slickPrev(); // Go to previous slide for sliderRef2
-  //    }
-  //  };
-  //  const settings = {
-  //    dots: false,
-  //    arrows: false,
-  //    infinite: true,
-  //    speed: 500,
-  //    slidesToShow: 1,
-  //    slidesToScroll: 1
-
-  //  };
   useEffect(() => {
+    getLatestNews(language);
     setNav1(slider1Ref.current);
     setNav2(slider2Ref.current);
     setNav3(slider3Ref.current);
-  }, []);
+  }, [language]);
   return (
     <div>
       <section>
@@ -83,38 +87,46 @@ const Videos = () => {
                         marginRight: "10px",
                         marginBottom: "2px",
                       }}
-                    />{" "}
+                    />
                     <strong
                       style={{ fontSize: "18px", textTransform: "uppercase" }}
                     >
-                      {" "}
-                      Our Show{" "}
-                    </strong>{" "}
+                      Our Show
+                    </strong>
                   </li>
                 </ul>
                 <div className="row">
                   <div className="col-sm-12">
                     <div className="youtube-video-slider position-relative">
                       {/* <Slider ref={sliderRef1} {...settings}> */}
-                      <Slider asNavFor={nav2} ref={slider1Ref} arrows={false}>
-                        {[...Array(6)].map((_, index) => (
-                         <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', overflow: 'hidden' }}>
-
-
-                            <iframe
-                              // width=""
-                              // height="315"
-                              src="https://www.youtube.com/embed/tiYeQTkurME?si=PXKaHZz-9bm6KSr4"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                               width= '100%'
-                                height= '480px' 
-                              ></iframe>
-                            {/* <img className="w-100" src={thumb1} alt="" /> */}
-                          </div>
-                        ))}
+                      <Slider asNavFor={nav3} ref={slider1Ref} arrows={false}>
+                        {latestNews.map(
+                          (newsItem, index) =>
+                            index < 6 && (
+                              <div
+                                style={{
+                                  position: "relative",
+                                  width: "100%",
+                                  paddingBottom: "56.25%",
+                                  overflow: "hidden",
+                                }}
+                                key={newsItem._id}
+                              >
+                                <iframe
+                                  // width=""
+                                  // height="315"
+                                  src={newsItem.videoUrl}
+                                  title="YouTube video player"
+                                  frameborder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                  allowfullscreen
+                                  width="100%"
+                                  height="480px"
+                                ></iframe>
+                                {/* <img className="w-100" src={thumb1} alt="" /> */}
+                              </div>
+                            )
+                        )}
                       </Slider>
                       {/* <div>
                        
@@ -132,28 +144,49 @@ const Videos = () => {
                 </div>
                 <div className="row">
                   <div className="col-sm-6">
-                  <Slider asNavFor={nav1} ref={slider3Ref} arrows={false}>
-                  {[...Array(6)].map((_, index) => (
-                    <div className="bottom-caption">
-                     
-                      <h2>
-                        Welcome To The Best Model Winner Contest At Look of the
-                        year
-                      </h2>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit
-                        sed do eiusmod ipsum dolor sit. Lorem ipsum dolor sit
-                        amet consectetur adipisicing elit sed do eiusmod ipsum
-                        dolor sit. Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit sed do eiusmod ipsum dolor sit lorem
-                        ipsum dolor sit.
-                      </p>
-                    </div>
-                          ))}
-                          </Slider>
+                    <Slider asNavFor={nav2} ref={slider3Ref} arrows={false}>
+                      {latestNews.map(
+                        (newsItem, index) =>
+                          index < 6 && (
+                            <div className="bottom-caption" key={newsItem._id}>
+                              <Link
+                                to={`/news/${newsItem._id}`}
+                                style={{
+                                  textDecoration: "none",
+                                  color: "black",
+                                }}
+                              >
+                                <h2>{newsItem.title}</h2>
+                              </Link>
+
+                              <p className="text-start">
+          {newsItem.description.substring(0, 500)} {/* Truncate to 100 characters as an example */}
+          {/* Display 'Read More' link to navigate to the full news article */}
+          <Link 
+            to={`/news/${newsItem._id}`} 
+            style={{
+              color: 'grey', 
+              textDecoration: 'none',  // Remove underline
+              cursor: 'pointer',
+              marginLeft: '10px',  // Adding some space between the truncated text and the "Read More" link
+              transition: 'color 0.3s',  // Smooth color transition on hover
+            }}
+            onMouseOver={(e) => { e.target.style.color = 'orange' }}  // Change color on hover
+            onMouseOut={(e) => { e.target.style.color = 'grey' }}     // Change color back to grey on mouse out
+          >
+            Read More...
+          </Link>
+        </p>
+                            </div>
+                          )
+                      )}
+                    </Slider>
                   </div>
 
-                  <div className="col-sm-6" style={{ textAlign: "right" }}>
+                  <div
+                    className="col-sm-6 section-to-hide"
+                    style={{ textAlign: "right" }}
+                  >
                     <ul className="youtube-videos">
                       {/* <Slider ref={sliderRef2} {...settings}> */}
                       <Slider
@@ -164,24 +197,41 @@ const Videos = () => {
                         swipeToSlide={true}
                         focusOnSelect={true}
                       >
-                        {[...Array(6)].map((_, index) => (
-                          <div key={index} style={styles.videoItem}>
+                        {latestNews.map((newsItem, index) => (
+                           index < 6 && (
+
+                       
+                          <div key={newsItem._id} style={styles.videoItem}>
                             {/* <h3>{index + 1}</h3> */}
                             <li>
-        <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
-          <iframe
-            src="https://www.youtube.com/embed/tiYeQTkurME?si=PXKaHZz-9bm6KSr4"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          ></iframe>
-        </div>
-        <p>Welcotme To The Best Model Winner Contest </p>
-      </li>
+                              <div
+                                style={{
+                                  position: "relative",
+                                  width: "100%",
+                                  paddingBottom: "56.25%",
+                                  height: 0,
+                                  overflow: "hidden",
+                                }}
+                              >
+                                <iframe
+                                  src={newsItem.videoUrl}
+                                  title="YouTube video player"
+                                  frameBorder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                  allowFullScreen
+                                  style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%",
+                                  }}
+                                ></iframe>
+                              </div>
+                              <p > {newsItem.title.substring(0,40)}...</p>
+                            </li>
                           </div>
-                        ))}
+                           ) ))}
                       </Slider>
                       {/* </Slider> */}
                       {/* <li>

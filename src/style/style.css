@@ -928,3 +928,8 @@ ul.youtube-videos li p {
 	}
 	
 }
+@media (max-width: 768px) {
+    .section-to-hide {
+      display: none;
+    }
+  }
